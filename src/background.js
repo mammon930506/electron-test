@@ -79,3 +79,18 @@ if (isDevelopment) {
     })
   }
 }
+
+
+import { add, addPtr, initArray } from './myDll'
+// 调用add 方法
+const result = add(1, 2)
+console.log(`add method result of 1 + 2 is: ` + result)
+// 调用addPtr
+console.log('addPtr 调用后数据>>', addPtr(2, 2)) // 调用函数，传递指针
+
+// 调用initArray 方法
+let myArray = initArray(4)
+console.log('初始化数组执行结果:')
+for (var i = 0; i < myArray.length; i++) {
+  console.log(myArray[i])
+}

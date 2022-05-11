@@ -6,9 +6,9 @@ const intArray = arrayType(ref.types.int)
 const path = require('path')
 const { arch } = process
 
-let dllpath = path.resolve('resources/dll/MYDLLDEMO_x64')
+let dllpath = path.resolve('resources/dll/MYDLLDEMO_x64.dll')
 if(arch==='x86'){
-    dllpath = path.resolve('resources/dll/MYDLLDEMO_x86')
+    dllpath = path.resolve('resources/dll/MYDLLDEMO_x86.dll')
 }
 
 const lib = new ffi.Library(dllpath, {

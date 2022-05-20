@@ -1,16 +1,24 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PdfjsTest></PdfjsTest>
 </template>
 
 <script>
+import {createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-
+import PdfjsTest from "@/components/PdfjsTest";
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes:[]
+})
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    PdfjsTest
+  },
+  router
 }
 </script>
 

@@ -8,10 +8,12 @@
 <script>
 import {onMounted, reactive, toRaw, readonly} from "vue";
 const pdfjsLib = require('pdfjs-dist')
-pdfjsLib.GlobalWorkerOptions.workerSrc= './resources/pdfjs/pdf.worker.js'
-const cMapUrl = './cmaps/'
-const url = './resources/pdfjs/file2.pdf'
 // const path = require('path')
+pdfjsLib.GlobalWorkerOptions.workerSrc= './resources/pdfjs/pdf.worker.js'
+// const cMapUrl = path.resolve(process.cwd(),'./resources/pdfjs/cmaps/')+'/'
+const CMapReaderFactory = require('./CMapReaderFactory')
+const url = './resources/pdfjs/file2.pdf'
+
 export default {
   name: "PdfjsTest",
   setup(){
@@ -29,7 +31,7 @@ export default {
           can,
           ctx:can.getContext('2d')
         })
-        let loadingTask = pdfjsLib.getDocument({url,useWorkerFetch:true,cMapUrl,cMapPacked:true});
+        let loadingTask = pdfjsLib.getDocument({url,/*useWorkerFetch:false,cMapUrl*/CMapReaderFactory,cMapPacked:true});
         loadingTask.promise.then((pdf)=>{
           Obj.pdfHandle = pdf
           Obj.totalPage = pdf.numPages

@@ -1,6 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CopyQR></CopyQR>
   <PdfjsTest></PdfjsTest>
 </template>
 
@@ -8,6 +9,7 @@
 import {createRouter,createWebHashHistory } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import PdfjsTest from "@/components/PdfjsTest";
+import CopyQR from "@/components/CopyQR";
 const router = createRouter({
   history: createWebHashHistory(),
   routes:[]
@@ -16,7 +18,8 @@ export default {
   name: 'App',
   components: {
     HelloWorld,
-    PdfjsTest
+    PdfjsTest,
+    CopyQR
   },
   router
 }
